@@ -1,0 +1,33 @@
+{
+  "name": "simple-rest-api",
+  "version": "1.0.0",
+  "description": "A simple RESTful API created for an assignment",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "start_local": "node -r dotenv/config server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/petrucci53/simple-rest-api.git"
+  },
+  "keywords": [
+    "rest",
+    "api"
+  ],
+  "author": "Ömer Furkan Gençer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/petrucci53/simple-rest-api/issues"
+  },
+  "homepage": "https://github.com/petrucci53/simple-rest-api#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.7.12"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "jest": "^24.9.0"
+  }
+}
