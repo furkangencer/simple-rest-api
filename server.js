@@ -1,1 +1,7 @@
-console.log('Hello world');
+const server = require('./app');
+
+// Create the basic server setup
+server.createServer();
+
+// Start the server
+server.startServer();
