@@ -10,33 +10,33 @@ const getRecordsByDateAndSum = async (req, res, next) => {
     } = req.body;
 
     if (startDate === undefined || startDate === '') {
-      return res.status(422).json({
-        'code': 'REQUIRED_FIELD_MISSING',
-        'msg': 'startDate is required',
+      return res.status(400).json({
+        'code': 400,
+        'msg': 'Required field missing',
         'field': 'startDate'
       });
     }
 
     if (endDate === undefined || endDate === '') {
-      return res.status(422).json({
-        'code': 'REQUIRED_FIELD_MISSING',
-        'msg': 'endDate is required',
+      return res.status(400).json({
+        'code': 400,
+        'msg': 'Required field missing',
         'field': 'endDate'
       });
     }
 
     if (minCount === undefined || minCount === '') {
-      return res.status(422).json({
-        'code': 'REQUIRED_FIELD_MISSING',
-        'msg': 'minCount is required',
+      return res.status(400).json({
+        'code': 400,
+        'msg': 'Required field missing',
         'field': 'minCount'
       });
     }
 
     if (maxCount === undefined || maxCount === '') {
-      return res.status(422).json({
-        'code': 'REQUIRED_FIELD_MISSING',
-        'msg': 'maxCount is required',
+      return res.status(400).json({
+        'code': 400,
+        'msg': 'Required field missing',
         'field': 'maxCount'
       });
     }
@@ -71,8 +71,8 @@ const getRecordsByDateAndSum = async (req, res, next) => {
 
   } catch (err) {
     return res.status(500).json({
-      'code': 'SERVER_ERROR',
-      'msg': 'something went wrong, Please try again'
+      'code': 500,
+      'msg': 'Something went wrong. Please try again'
     });
   }
 }
