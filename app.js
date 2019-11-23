@@ -24,6 +24,9 @@ let createServer = () => {
     extended: false
   }));
 
+  // Set up routes
+  routes.init(app);
+
   // Connect to database
   mongoose.connect(
     process.env.DATABASE_URL,
@@ -34,13 +37,13 @@ let createServer = () => {
       useFindAndModify: false
     }
   )
-    .then(() => console.log('Succesfuly connected to db'))
+    .then(() => {
+      console.log('Successfully connected to db');
+    })
     .catch(err => {
-      throw new Error(err)
+      console.error(err);
+      process.exit(1);
     });
-
-  // Set up routes
-  routes.init(app);
 }
 
 /**
