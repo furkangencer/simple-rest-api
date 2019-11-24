@@ -3,9 +3,10 @@ const mongoose = require('mongoose');
 /**
  * Establish connection to MongoDB Database
  * @param dbUrl MongoDB database URL.
- * @param config MongoDB database URL.
+ * @param config Mongoose config.
  */
-let connectToDb = (dbUrl='', config={}) => {
+let dbCon;
+const connectDb = (dbUrl='', config={}) => {
   return new Promise((resolve, reject) => {
     mongoose.connect(
       dbUrl,
@@ -17,8 +18,9 @@ let connectToDb = (dbUrl='', config={}) => {
         ...config
       }
     )
-      .then(() => {
-        resolve();
+      .then((con) => {
+        dbCon = con;
+        resolve(con);
       })
       .catch(err => {
         reject(err);
@@ -26,6 +28,15 @@ let connectToDb = (dbUrl='', config={}) => {
   })
 }
 
+const disconnectDb = () => {
+  return new Promise((resolve, reject) => {
+    dbCon.connection.close()
+      .then(res => resolve(res))
+      .catch(err => reject(err))
+  })
+};
+
 module.exports = {
-  connectToDb
+  connectDb,
+  disconnectDb
 }

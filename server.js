@@ -1,8 +1,8 @@
 const app = require('./app');
-const {connectToDb} = require('./db/connection');
+const {connectDb} = require('./db/connection');
 
 // Database connection
-connectToDb(process.env.DATABASE_URL)
+connectDb(process.env.DATABASE_URL)
   .then(()=> console.log('Successfully connected to db'))
   .catch(err => {
     console.error(err);
