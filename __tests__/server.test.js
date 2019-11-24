@@ -35,6 +35,7 @@ describe('POST /api/v1/records', () => {
       .expect(200)
       .end(function(err, res) {
         if (err) return done(err);
+        expect(res.body).toHaveProperty('records');
         expect(res.body.records.length).toBe(5);
         done();
       });
@@ -53,6 +54,7 @@ describe('POST /api/v1/records', () => {
       .expect(200)
       .end(function(err, res) {
         if (err) return done(err);
+        expect(res.body).toHaveProperty('records');
         expect(res.body.records.length).toBe(0);
         done();
       });
@@ -70,6 +72,8 @@ describe('POST /api/v1/records', () => {
       .expect(400)
       .end(function(err, res) {
         if (err) return done(err);
+        expect(res.body).toHaveProperty('msg');
+        expect(res.body).toHaveProperty('field');
         expect(res.body.msg).toBe('Required field missing');
         expect(res.body.field).toBe('maxCount');
         done();
@@ -85,6 +89,8 @@ describe('POST /api/v1/someotherendpoint', () => {
       .expect(404)
       .end(function(err, res) {
         if (err) return done(err);
+        expect(res.body).toHaveProperty('code');
+        expect(res.body).toHaveProperty('msg');
         expect(res.body.code).toBe(404);
         expect(res.body.msg).toBe("Not found");
         done();
@@ -100,6 +106,8 @@ describe('GET /api/v1/records', () => {
       .expect(404)
       .end(function(err, res) {
         if (err) return done(err);
+        expect(res.body).toHaveProperty('code');
+        expect(res.body).toHaveProperty('msg');
         expect(res.body.code).toBe(404);
         expect(res.body.msg).toBe("Not found");
         done();
@@ -121,6 +129,8 @@ describe('PUT /api/v1/records', () => {
       .expect(404)
       .end(function(err, res) {
         if (err) return done(err);
+        expect(res.body).toHaveProperty('code');
+        expect(res.body).toHaveProperty('msg');
         expect(res.body.code).toBe(404);
         expect(res.body.msg).toBe("Not found");
         done();
