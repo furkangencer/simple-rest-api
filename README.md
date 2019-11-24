@@ -1,6 +1,8 @@
 # simple-rest-api
 A simple REST API.
 
+[![Build Status](https://api.travis-ci.com/petrucci53/simple-rest-api.svg?branch=master)](https://travis-ci.com/petrucci53/simple-rest-api)
+
 ## Usage
 Sending a POST request to `/api/v1/records` with a JSON payload like below will fetch the data from the MongoDB database according to the parameters set in the payload.
     
