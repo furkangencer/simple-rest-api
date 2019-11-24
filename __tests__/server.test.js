@@ -1,20 +1,14 @@
 /**
  * @jest-environment node
  */
-require('dotenv').config();
 const app = require('../app');
 const {connectDb, disconnectDb} = require('./../db/connection');
 const request = require('supertest')
 
-const dummyPayload = {
-  startDate: "2017-01-01",
-  endDate: "2017-01-02",
-  minCount: 100,
-  maxCount: 700
-}
+const dbUrl = process.env.DATABASE_URL || "mongodb://dbUser:dbPassword1@ds249623.mlab.com:49623/getir-case-study";
 
 beforeAll(() => {
-  return connectDb(process.env.DATABASE_URL);
+  return connectDb(dbUrl);
 });
 
 afterAll(() => {
