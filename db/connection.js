@@ -28,6 +28,7 @@ const connectDb = (dbUrl='', config={}) => {
   })
 }
 
+// Close database connection
 const disconnectDb = () => {
   return new Promise((resolve, reject) => {
     dbCon.connection.close()
