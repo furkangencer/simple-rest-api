@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/petrucci53/simple-rest-api#readme",
   "dependencies": {
+    "@sentry/node": "^5.12.4",
     "express": "^4.17.1",
     "mongoose": "^5.7.12"
   },
