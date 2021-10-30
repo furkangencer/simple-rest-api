@@ -20,7 +20,5 @@ Sending a POST request to `/api/v1/records` with a JSON payload like below will 
         "maxCount": 3000
     }
 
-## Example Heroku App
-https://getir-simple-rest-api.herokuapp.com/api/v1/records
 
-For those who want to deploy the app to a production environment like Heroku, make sure you set the necessary environment variables before starting the server.
+For those who want to deploy the app to a production environment like Heroku, make sure you set the necessary environment variables.
